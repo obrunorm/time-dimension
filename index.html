@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Video Frame Viewer</title>
+  <link rel="stylesheet" href="./styles.css">
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <main id="upload-screen" class="upload-screen">
+    <section class="video-upload-card" aria-labelledby="title">
+      <h1 id="title">Video viewer</h1>
+      <p class="video-upload-description">Add a video to view its frames in 3D.</p>
+      <div id="video-drop-zone" class="video-drop-zone">
+        <h2>Drop your video here</h2>
+        <p>or select a file from your computer</p>
+        <p id="video-limit">Maximum duration: 1 minute (60 seconds).</p>
+        <button id="select-video" class="button button--primary" type="button">Select video</button>
+        <input id="video-file" type="file" accept="video/*" aria-describedby="video-limit" hidden>
+      </div>
+      <div id="frame-extraction-progress" class="frame-extraction-progress" hidden>
+        <p id="progress-message" role="status" aria-live="polite">Preparing video...</p>
+        <progress id="progress" max="100" value="0" aria-label="Frame extraction"></progress>
+        <button id="cancel" class="button" type="button">Cancel</button>
+      </div>
+      <p id="upload-error" class="upload-error" role="alert" hidden></p>
+      <p class="local-processing-notice">Your video is processed in this browser and is not uploaded to a server.</p>
+    </section>
+  </main>
+  <section id="viewer-screen" class="viewer-screen" aria-label="3D frame viewer" hidden>
+    <div id="viewer-canvas-container" class="viewer-canvas-container"></div>
+    <header class="viewer-toolbar">
+      <button id="back" class="button" type="button">Choose another video</button>
+      <p id="viewer-video-name" class="viewer-video-name"></p>
+    </header>
+    <footer class="viewer-controls">
+      <p class="viewer-instructions">Drag to rotate · Scroll to adjust transparency</p>
+      <div class="viewer-zoom-controls" role="group" aria-label="Viewer zoom controls">
+        <button id="zoom-in" class="button zoom-button" type="button" aria-label="Zoom in" title="Zoom in">+</button>
+        <button id="zoom-out" class="button zoom-button" type="button" aria-label="Zoom out" title="Zoom out">−</button>
+      </div>
+    </footer>
+  </section>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+:root {
+  color-scheme: light;
+  font-family: Arial, sans-serif;
+  color: #222;
+  background: #f5f5f5;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; }
+button, input { font: inherit; }
+button { touch-action: manipulation; }
+button:focus-visible { outline: 3px solid #777; outline-offset: 3px; }
+
+.upload-screen {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.video-upload-card {
+  width: min(100%, 540px);
+  padding: 32px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+}
+
+h1 { margin: 0 0 12px; font-size: 1.5rem; font-weight: 600; }
+.video-upload-description { margin: 0 0 28px; color: #555; line-height: 1.5; }
+
+.video-drop-zone {
+  padding: 32px 20px;
+  border: 2px dashed #ccc;
+  border-radius: 6px;
+  text-align: center;
+  background: #fafafa;
+}
+
+.video-drop-zone.is-dragging { background: #eee; border-color: #555; }
+.video-drop-zone h2 { margin: 0 0 12px; font-size: 1.125rem; }
+.video-drop-zone p { margin: 0 0 20px; color: #555; line-height: 1.5; }
+#video-limit { font-size: 0.875rem; }
+
+.button {
+  padding: 10px 16px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  color: #222;
+  background: #fff;
+  cursor: pointer;
+}
+
+.button:hover:not(:disabled) { background: #eee; }
+.button--primary { border-color: #333; color: #fff; background: #333; }
+.button--primary:hover:not(:disabled) { background: #111; }
+.button:disabled { opacity: 0.4; cursor: default; }
+.local-processing-notice { margin: 20px 0 0; color: #666; font-size: 0.875rem; line-height: 1.5; }
+.upload-error { color: #b42318; line-height: 1.5; }
+.frame-extraction-progress { padding: 16px 0; }
+progress { width: 100%; height: 10px; accent-color: #444; margin: 8px 0 24px; }
+
+.viewer-screen, .viewer-canvas-container { position: fixed; inset: 0; }
+.viewer-screen { color-scheme: dark; color: #eee; }
+.viewer-canvas-container canvas { display: block; width: 100%; height: 100%; }
+
+.viewer-toolbar, .viewer-controls {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.viewer-toolbar { top: 20px; }
+.viewer-controls { bottom: 20px; }
+.viewer-toolbar button, .viewer-zoom-controls { pointer-events: auto; }
+.viewer-screen .button { border-color: #666; color: #fff; background: #303030; }
+.viewer-screen .button:hover:not(:disabled) { background: #444; }
+.viewer-video-name { max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin: 0; }
+.viewer-instructions { padding: 10px 12px; border-radius: 5px; background: #222c; font-size: 0.875rem; line-height: 1.5; }
+.viewer-zoom-controls { display: flex; gap: 8px; }
+.zoom-button { width: 48px; height: 48px; padding: 0; font-size: 1.75rem; }
+
+@media (max-width: 600px) {
+  .video-upload-card { padding: 24px 20px; }
+  .viewer-toolbar, .viewer-controls { left: 12px; right: 12px; }
+  .viewer-toolbar { flex-wrap: wrap; }
+  .viewer-video-name { max-width: 100%; font-size: 0.875rem; }
+  .viewer-instructions { max-width: 190px; }
+}
