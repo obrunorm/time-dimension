@@ -2,6 +2,8 @@
 
 Explore time as depth by turning a video into interactive layers of frames.
 
+**[Try the live demo](https://obrunorm.github.io/time-dimension/)** — open the site and select a video up to 1 minute long.
+
 Time Dimension is a browser-based visualization built with Three.js. Instead of watching frames replace one another during playback, you can see sampled moments arranged together in a 3D stack. Rotate the stack, zoom in, and scroll to gradually reveal its layers.
 
 ## The idea: time as a dimension
